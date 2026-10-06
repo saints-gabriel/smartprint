@@ -2,17 +2,21 @@ export const NovoPedido = () => {
     const itens = [
         {
             nome: "Coquinha Zero",
-            valor: "R$30,00"
+            valor: "30.00"
         },
         {
             nome: "X-Tudo",
-            valor: "R$400,00"
-        },
-        {
-            nome: "Cavalo Velho",
-            valor: "R$2350,00"
+            valor: "400.00"
         }
     ];
+
+
+    // Sum all values
+    const soma = itens.reduce((total, item) => {
+        return total + parseFloat(item.valor);
+    }, 0);
+
+    const formattedSoma = `R$${soma}`;
     return (
         <main className="flex flex-col w-[75%] h-fit p-3 bg-white rounded-sm my-5">
             <h1 className="font-bold text-xl">Novo Pedido</h1>
@@ -41,12 +45,15 @@ export const NovoPedido = () => {
                         itens.map((item) => (
                             <div key={item.id} className="w-full h-75 m-3">
                                 <p>{item.nome}</p>
-                                <p>{item.valor}</p>
+                                <p>R${item.valor}</p>
                             </div>
                         ))
                     )}
                 </div>
-
+                <div className="flex mx-auto justify-between">
+                    <p>Total do Pedido:</p>
+                    <p>{formattedSoma}</p>
+                </div>
             </div>
         </main>
     )
