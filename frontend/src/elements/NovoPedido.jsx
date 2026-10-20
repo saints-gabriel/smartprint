@@ -105,12 +105,12 @@ export const NovoPedido = ({ onEnviarPedido }) => {
                         + Adicionar Itens
                     </button>
                 </div>
-                <div className={`rounded-sm bg-blue-100 w-full h-75 overflow-y-auto p-4 ${itens.length === 0 ? "flex items-center justify-center" : "flex flex-wrap content-start items-start gap-3"}`}>
+                <div className={`rounded-sm bg-blue-100 w-full min-h-75 p-4 ${itens.length === 0 ? "flex items-center justify-center" : "grid grid-cols-3 content-start items-start gap-3"}`}>
                     {itens.length === 0 ? (
                         <p>Nenhum Item Adicionado.</p>
                     ) : (
                         itens.map((item) => (
-                            <div key={item.id} className="min-w-[180px] flex-1 rounded-sm bg-white p-3">
+                            <div key={item.id} className="min-w-0 rounded-sm bg-white p-3">
                                 <div className="flex items-start justify-between gap-2">
                                     <p className="font-semibold">{item.nome}</p>
                                     <button
